@@ -1,0 +1,8 @@
+[user]
+	name = Andreas Fridlund
+	email = afridlund85@gmail.com
+[core]
+        excludesfile = ~/.gitignore
+        editor = nvim
+[pull]
+        ff = only
