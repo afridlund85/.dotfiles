@@ -1,6 +1,0 @@
-require('afridlund85.lsp')
-require('afridlund85.treesitter')
-require('afridlund85.lualine')
-require('afridlund85.gitsigns')
-require('afridlund85.bufferline')
-require('afridlund85.mappings')
