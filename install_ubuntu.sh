@@ -32,11 +32,14 @@ update-alternatives --config vim
 
 # LSP
 /usr/local/go/bin/go install golang.org/x/tools/gopls@latest
+npm i -g yarn
 npm i -g typescript typescript-language-server
 npm i -g @tailwindcss/language-server
 npm i -g vscode-langservers-extracted
 npm i -g intelephense
 npm i -g @fsouza/prettierd
+npm i -g dockerfile-language-server-nodejs
+yarn global add yaml-language-server
 
 # font
 mkdir -p ~/.local/share/fonts

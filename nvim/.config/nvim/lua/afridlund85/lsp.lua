@@ -53,7 +53,7 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
-local servers = {'tsserver', 'intelephense', 'html', 'tailwindcss', 'gopls'}
+local servers = {'tsserver', 'intelephense', 'html', 'tailwindcss', 'gopls', 'yaml', 'dockerls'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
