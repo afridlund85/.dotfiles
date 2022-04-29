@@ -32,3 +32,7 @@ map("n", "<Leader>q", "<cmd>Bdelete<CR>", opts)
 --force
 map("n", "<C-w>", "<cmd>w!<CR>", opts)
 map("n", "<C-q>", "<cmd>q!<CR>", opts)
+
+map("n", "<F10>", "zi", opts)
+map("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+map("n", "<F12>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)

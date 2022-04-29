@@ -4,13 +4,33 @@ if not status_ok then
 end
 
 nvim_treesitter.setup {
-  ensure_installed = "all",
-  sync_install = false,
-  ignore_install = { "" },
+  ensure_installed = {
+	  "bash",
+	  "css",
+	  "dockerfile",
+	  "go",
+	  "graphql",
+	  "html",
+	  "javascript",
+	  "json",
+	  "lua",
+	  "php",
+	  "python",
+	  "regex",
+	  "scss",
+	  "tsx",
+	  "typescript",
+	  "yaml"
 
+  },
+  sync_install = false,
+  -- ignore_install = { "" },
   highlight = {
     enable = true,
-    disable = { "c", "rust" },
+    -- disable = { "c", "rust" },
     additional_vim_regex_highlighting = false,
   },
+  indent = {
+	enabled = true
+  }
 }
