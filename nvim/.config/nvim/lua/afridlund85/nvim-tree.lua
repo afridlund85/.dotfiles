@@ -8,4 +8,14 @@ vim.cmd [[
 ]]
 
 nvim_tree.setup {
+	hijack_cursor = true,
+	hijack_unnamed_buffer_when_opening = false,
+	filters = {
+		dotfiles = false
+	},
+	view = {
+		width = 30,
+		side = 'left',
+		preserve_window_proportions = false,
+	},
 }
