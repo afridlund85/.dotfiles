@@ -19,6 +19,7 @@ local options = {
     smartindent = true,
     smarttab = true,
     softtabstop = 4,
+	splitbelow = true,
 	splitright = true,
     tabstop = 4,
     termguicolors = true,

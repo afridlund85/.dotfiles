@@ -24,6 +24,9 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
+map("n", "<leader>j", "<C-W><C-S>", opts)
+map("n", "<leader>l", "<C-W><C-V>", opts)
+
 -- buffer nav
 map("n", "<S-l>", "<cmd>bnext<CR>", opts)
 map("n", "<S-h>", "<cmd>bprevious<CR>", opts)
@@ -33,6 +36,8 @@ map("n", "<Leader>q", "<cmd>Bdelete<CR>", opts)
 map("n", "<C-w>", "<cmd>w!<CR>", opts)
 map("n", "<C-q>", "<cmd>q!<CR>", opts)
 
+-- other
+map("n", "<leader><leader>", "<cmd>noh<CR>", opts)
 map("n", "<F10>", "zi", opts)
 map("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 map("n", "<F12>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
