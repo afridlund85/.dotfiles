@@ -15,8 +15,12 @@ vim.g.maplocalleader = " "
 map("n", "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>", opts)
 
 --nvim-tree
-map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
-map("n", "<leader>f", "<cmd>NvimTreeFindFile<CR>", opts)
+--map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
+--map("n", "<leader>f", "<cmd>NvimTreeFindFile<CR>", opts)
+
+--nerdtree
+map("n", "<leader>e", "<cmd>NERDTreeToggle<CR>", opts)
+map("n", "<leader>f", "<cmd>NERDTreeFind<CR>", opts)
 
 --window nav
 map("n", "<C-h>", "<C-w>h", opts)
