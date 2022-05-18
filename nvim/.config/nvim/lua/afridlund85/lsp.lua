@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
 --  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
 -- Disable auto formatting from LSP. Will use null-ls
-  if client.name == "tsserver" or client.name == "html" then
+  if client.name == "tsserver" or client.name == "html" or client.name == "gopls" then
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
   end
