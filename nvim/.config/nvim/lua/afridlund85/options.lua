@@ -13,6 +13,7 @@ local options = {
 	laststatus = 3,
     mouse = "a",
     number = true,
+	relativenumber = true,
     ruler = true,
     shiftwidth = 4,
     showmode = false,
