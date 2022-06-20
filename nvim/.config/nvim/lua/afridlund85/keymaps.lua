@@ -13,7 +13,7 @@ vim.g.maplocalleader = " "
 
 --fuzzyfind
 map("n", "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>", opts)
-map("n", "<C-F>", "<cmd>lua require('fzf-lua').grep()<CR>", opts)
+map("n", "<C-F>", "<cmd>lua require('fzf-lua').live_grep()<CR>", opts)
 
 --nvim-tree
 --map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
