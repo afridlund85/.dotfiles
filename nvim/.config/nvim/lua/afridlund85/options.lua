@@ -38,3 +38,8 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 
+vim.cmd [[
+	if executable('ag')
+		let g:ackprg = 'ag --vimgrep'
+	endif
+]]
