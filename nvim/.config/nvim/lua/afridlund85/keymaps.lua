@@ -7,43 +7,46 @@ function map(mode, lhs, rhs, opts)
 end
 
 --leader key
-map("", "<Space>", "<Nop>", opts)
+map("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
---fuzzyfind
-map("n", "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>", opts)
-map("n", "<C-F>", "<cmd>lua require('fzf-lua').live_grep()<CR>", opts)
-
---nvim-tree
---map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
---map("n", "<leader>f", "<cmd>NvimTreeFindFile<CR>", opts)
+--telescope
+map("n", "<C-p>", "<cmd>Telescope find_files<CR>")
+map("n", "<C-f>", "<cmd>Telescope live_grep<CR>")
+map("n", "<leader>rf", "<cmd>Telescope resume<CR>")
 
 --nerdtree
-map("n", "<leader>e", "<cmd>NERDTreeToggle<CR>", opts)
-map("n", "<leader>f", "<cmd>NERDTreeFind<CR>", opts)
+map("n", "<leader>e", "<cmd>NERDTreeToggle<CR>")
+map("n", "<leader>sf", "<cmd>NERDTreeFind<CR>")
 
 --window nav
-map("n", "<C-h>", "<C-w>h", opts)
-map("n", "<C-j>", "<C-w>j", opts)
-map("n", "<C-k>", "<C-w>k", opts)
-map("n", "<C-l>", "<C-w>l", opts)
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-l>", "<C-w>l")
 
-map("n", "<leader>j", "<C-W><C-S>", opts)
-map("n", "<leader>l", "<C-W><C-V>", opts)
+map("n", "<leader>j", "<C-W><C-S>")
+map("n", "<leader>l", "<C-W><C-V>")
 
 -- buffer nav
-map("n", "<S-l>", "<cmd>bnext<CR>", opts)
-map("n", "<S-h>", "<cmd>bprevious<CR>", opts)
-map("n", "<Leader>q", "<cmd>Bdelete<CR>", opts)
-
---force
-map("n", "<C-w>", "<cmd>w!<CR>", opts)
-map("n", "<C-q>", "<cmd>q!<CR>", opts)
+map("n", "<S-l>", "<cmd>bnext<CR>")
+map("n", "<S-h>", "<cmd>bprevious<CR>")
+map("n", "<Leader>q", "<cmd>Bdelete<CR>")
 
 -- other
-map("n", "<leader><leader>", "<cmd>noh<CR>", opts)
-map("n", "<F10>", "zi", opts)
-map("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-map("n", "<F12>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+map("n", "<leader><leader>", "<cmd>noh<CR>")
+map("n" ,"<leader>sd", "<cmd>Telescope diagnostics<CR>")
+map("i", "<A-h>", "<C-o>h")
+map("i", "<A-j>", "<C-o>j")
+map("i", "<A-k>", "<C-o>k")
+map("i", "<A-l>", "<C-o>l")
+
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+map("x", "p", [["_dP]])
+map("n", "Q", "<nop>")
+map("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 

@@ -1,3 +1,5 @@
+.git
+README.md
+Dockerfile*
 nvim/.config/nvim/undodir/*
 nvim/.config/nvim/plugin/*
-nvim/.config/nvim/lua/.luarc.json

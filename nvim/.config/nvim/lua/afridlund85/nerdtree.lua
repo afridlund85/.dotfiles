@@ -1,4 +1,3 @@
-
 local status_ok, nerdtree = pcall(require, 'nerdtree')
 if not status_ok then
 	return
@@ -20,3 +19,4 @@ vim.cmd [[
 
 nerdtree.setup {
 }
+vim.opt[NERDTreeShowHidden] = 1

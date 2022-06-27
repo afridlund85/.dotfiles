@@ -1,60 +1,31 @@
-source ~/.bashrc
-#source ~/git-completion.bash
-#if [ -f /etc/bash_completion.d/git-prompt ]; then
-#  source ~/git-prompt.sh
-#fi
-
-PS1='\w$(__git_ps1 " (%s)")\$ '
+. ~/.bashrc
+. ~/.git-completion.bash
+. ~/.git-prompt.sh
 
 alias ls='ls -alh'
 
-export DENO_INSTALL="${HOME}/.deno"
+export PS1='\w$(__git_ps1 " (%s)")\$ '
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+NVIM_PATH="/usr/local/nvim/bin"
+export DENO_INSTALL="$HOME/.deno"
 export GOPATH="$HOME/go"
-NPM_PACKAGES="$HOME/.npm-packages"
+GO_BIN_PATH="/usr/local/go/bin/"
+NODE_PATH="$(which node)"
+export NODE_PATH
+export NVM_DIR="$HOME/.config/nvm"
+LUA_LSP_PATH="/usr/local/lua-language-server/bin"
+export RUST_PATH="$HOME/.cargo/bin"
 
-export PATH="$DENO_INSTALL/bin:$NPM_PACKAGES/bin:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin:$PATH"
+export PATH="$NVIM_PATH:$RUST_PATH:$LUA_LSP_PATH:$DENO_INSTALL/bin:$NODE_PATH/bin:$GO_BIN_PATH:$GOPATH/bin:$HOME/.local/bin:$PATH"
 
-# prompt
-FMT_BOLD="\[\e[1m\]"
-FMT_DIM="\[\e[2m\]"
-FMT_RESET="\[\e[0m\]"
-FMT_UNBOLD="\[\e[22m\]"
-FMT_UNDIM="\[\e[22m\]"
-FG_BLACK="\[\e[30m\]"
-FG_BLUE="\[\e[34m\]"
-FG_CYAN="\[\e[36m\]"
-FG_GREEN="\[\e[32m\]"
-FG_GREY="\[\e[37m\]"
-FG_MAGENTA="\[\e[35m\]"
-FG_RED="\[\e[31m\]"
-FG_WHITE="\[\e[97m\]"
-BG_BLACK="\[\e[40m\]"
-BG_BLUE="\[\e[44m\]"
-BG_CYAN="\[\e[46m\]"
-BG_GREEN="\[\e[42m\]"
-BG_MAGENTA="\[\e[45m\]"
-BG_RED="\[\e[41m\]"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
-parse_git_bg() {
-	[[ $(git status -s 2> /dev/null) ]] && echo -e "\e[43m" || echo -e "\e[42m"
-}
+[ -f ~/.fzf.bash ] && . ~/.fzf.bash
 
-parse_git_fg() {
-	[[ $(git status -s 2> /dev/null) ]] && echo -e "\e[33m" || echo -e "\e[32m"
-}
-
-PS1="${BG_BLUE}${FG_WHITE}\w" # begin arrow to prompt
-PS1+="${FG_BLUE}${BG_CYAN} " # end DIRECTORY container / begin FILES container
-PS1+="${FG_BLACK}"
-#PS1+=" \$(find . -mindepth 1 -maxdepth 1 -type d | wc -l) " # print number of folders
-#PS1+=" \$(find . -mindepth 1 -maxdepth 1 -type f | wc -l) " # print number of files
-#PS1+=" \$(find . -mindepth 1 -maxdepth 1 -type l | wc -l) " # print number of symlinks
-PS1+="${FMT_RESET}${FG_CYAN}"
-PS1+="\$(git branch 2> /dev/null | grep '^*' | colrm 1 2 | xargs -I BRANCH echo -n \"" # check if git branch exists
-PS1+="\$(parse_git_bg) " # end FILES container / begin BRANCH container
-PS1+="${FG_BLACK} BRANCH " # print current git branch
-PS1+="${FMT_RESET}\$(parse_git_fg)\")" # end last container (either FILES or BRANCH)
-PS1+="${FG_CYAN}\\$ " # print prompt
-PS1+="${FMT_RESET}"
-export PS1a
-
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
