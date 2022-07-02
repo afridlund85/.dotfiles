@@ -24,10 +24,10 @@ nvim_treesitter.setup {
 
   },
   sync_install = false,
-  -- ignore_install = { "" },
+  ignore_install = { "r", "beancount", "swift"},
   highlight = {
     enable = true,
-    -- disable = { "c", "rust" },
+    disable = { "r", "beancount", "swift"},
     additional_vim_regex_highlighting = false,
   },
   indent = {

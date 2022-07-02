@@ -5,9 +5,13 @@ apt -qq -y install curl wget git
 
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash
 apt -qq update
-apt -qq -y install build-essential software-properties-common g++ stow \
+apt -qq -y install build-essential software-properties-common g++ cmake stow \
+	ripgrep \
+	fd-find \
     nodejs \
     php8.1-{bcmath,xml,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi}
+
+ln -s $(which fdfind) ~/.local/bin/fd
 
 curl -fsSLO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
 apt install -qq -y ./nvim-linux64.deb
@@ -35,6 +39,7 @@ update-alternatives --config vim
 # LSP
 /usr/local/go/bin/go install golang.org/x/tools/gopls@latest
 npm i -g yarn
+npm i -g tree-sitter-cli
 npm i -g typescript typescript-language-server
 npm i -g @tailwindcss/language-server
 npm i -g vscode-langservers-extracted

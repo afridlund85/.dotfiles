@@ -11,13 +11,9 @@ map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
---fuzzyfind
-map("n", "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>", opts)
-map("n", "<C-F>", "<cmd>lua require('fzf-lua').live_grep()<CR>", opts)
-
---nvim-tree
---map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
---map("n", "<leader>f", "<cmd>NvimTreeFindFile<CR>", opts)
+--telescope
+map("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
+map("n", "<C-f>f", "<cmd>Telescope live_grep<CR>", opts)
 
 --nerdtree
 map("n", "<leader>e", "<cmd>NERDTreeToggle<CR>", opts)

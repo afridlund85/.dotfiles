@@ -9,7 +9,6 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
     sources = {
-        formatting.stylua,
         formatting.prettierd,
 		formatting.gofmt,
 		diagnostics.php

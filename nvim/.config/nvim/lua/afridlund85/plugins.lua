@@ -42,6 +42,7 @@ packer.init {
 return packer.startup(function(use)
 	use 'wbthomason/packer.nvim'
 	use 'nvim-lua/plenary.nvim'
+	use 'kyazdani42/nvim-web-devicons'
 
 	-- LSP, Code complete & snippets etc
 	use {
@@ -74,10 +75,11 @@ return packer.startup(function(use)
 	use 'preservim/nerdtree'
 	use 'akinsho/bufferline.nvim'
 	use 'moll/vim-bbye'
-	use { 'ibhagwan/fzf-lua',
-		requires = { 'kyazdani42/nvim-web-devicons' }
+	use {
+		'nvim-telescope/telescope.nvim',
+		requires = { {'nvim-lua/plenary.nvim'} }
 	}
-	use 'mileszs/ack.vim'
+	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
