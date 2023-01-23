@@ -39,5 +39,5 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.wrap = false
 vim.opt.shortmess:append "c"
-vim.opt.iskeyword:append "-"
+-- vim.opt.iskeyword:append "-"
 

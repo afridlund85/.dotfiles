@@ -103,3 +103,5 @@ lspconfig.cssls.setup{
 lspconfig.tailwindcss.setup {}
 
 lspconfig.bashls.setup {}
+
+lspconfig.pyright.setup {}

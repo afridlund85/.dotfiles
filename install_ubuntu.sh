@@ -9,8 +9,13 @@ sudo apt -qq -y install curl wget git build-essential software-properties-common
 	shellcheck \
     php8.0-{bcmath,xml,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi} \
     php8.1-{bcmath,xml,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi} \
-    php8.2-{bcmath,xml,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi}
+    php8.2-{bcmath,xml,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi} \
+	python3-venv \
+	python3-pip
 
 mkdir -p ~/.local/bin
-ln -s $(which fdfind) ~/.local/bin/fd
+ln -s "$(which fdfind)" ~/.local/bin/fd
+
+pip install debugpy
+pip install virtualenv
 

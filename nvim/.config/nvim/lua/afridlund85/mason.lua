@@ -17,6 +17,7 @@ mason_lspconfig.setup{
 		"gopls",
 		"html",
 		"intelephense",
+		"pyright",
 		"rust_analyzer",
 		"sumneko_lua",
 		"tailwindcss",

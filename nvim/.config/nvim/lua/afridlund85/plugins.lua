@@ -73,6 +73,8 @@ return packer.startup(function(use)
 
 	-- DAP
 	use 'mfussenegger/nvim-dap'
+	use 'mfussenegger/nvim-dap-python'
+	use 'rcarriga/nvim-dap-ui'
 
 	-- Theme & style
 	use 'morhetz/gruvbox'

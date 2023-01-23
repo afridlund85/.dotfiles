@@ -21,6 +21,7 @@ nvim_treesitter.setup {
 	  "scss",
 	  "tsx",
 	  "typescript",
+	  "vim",
 	  "yaml"
 
   },
