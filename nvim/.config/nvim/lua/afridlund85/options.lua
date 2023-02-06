@@ -20,7 +20,6 @@ vim.opt.ruler = true
 vim.opt.scrolloff = 5
 vim.opt.colorcolumn = "80"
 
-
 vim.opt.smartcase = true
 vim.opt.ignorecase = true
 vim.opt.hlsearch = true
@@ -41,3 +40,6 @@ vim.opt.wrap = false
 vim.opt.shortmess:append "c"
 -- vim.opt.iskeyword:append "-"
 
+-- nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

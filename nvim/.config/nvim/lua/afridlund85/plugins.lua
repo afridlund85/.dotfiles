@@ -49,6 +49,7 @@ return packer.startup(function(use)
 		'nvim-treesitter/nvim-treesitter',
 		run = ":TSUpdate",
 	}
+	use 'nvim-treesitter/nvim-treesitter-context'
 	use {
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
@@ -82,7 +83,8 @@ return packer.startup(function(use)
 	use 'lewis6991/gitsigns.nvim'
 
 	-- files, nav & buffers
-	use 'preservim/nerdtree'
+	-- use 'preservim/nerdtree'
+	use 'nvim-tree/nvim-tree.lua'
 	use 'akinsho/bufferline.nvim'
 	use 'moll/vim-bbye'
 	use {

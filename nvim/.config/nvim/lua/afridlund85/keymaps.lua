@@ -15,10 +15,14 @@ vim.g.maplocalleader = " "
 map("n", "<C-p>", "<cmd>Telescope find_files<CR>")
 map("n", "<C-f>", "<cmd>Telescope live_grep<CR>")
 map("n", "<leader>rf", "<cmd>Telescope resume<CR>")
+map("n" ,"<leader>sd", "<cmd>Telescope diagnostics<CR>")
 
 --nerdtree
-map("n", "<leader>e", "<cmd>NERDTreeToggle<CR>")
-map("n", "<leader>sf", "<cmd>NERDTreeFind<CR>")
+-- map("n", "<leader>e", "<cmd>NERDTreeToggle<CR>")
+-- map("n", "<leader>sf", "<cmd>NERDTreeFind<CR>")
+
+map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
+map("n", "<leader>sf", "<cmd>NvimTreeFindFile<CR>")
 
 --window nav
 map("n", "<C-h>", "<C-w>h")
@@ -34,9 +38,18 @@ map("n", "<S-l>", "<cmd>bnext<CR>")
 map("n", "<S-h>", "<cmd>bprevious<CR>")
 map("n", "<Leader>q", "<cmd>Bdelete<CR>")
 
+-- dap
+
+map("n", "<leader>dt", ":lua require('dapui').toggle()<CR>")
+map("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>")
+
+map("n", "<leader>dc", "<cmd>DapContinue<CR>")
+map("n", "<leader>ds", "<cmd>DapStepOver<CR>")
+map("n", "<leader>di", "<cmd>DapStepInto<CR>")
+map("n", "<leader>do", "<cmd>DapStepOut<CR>")
+
 -- other
 map("n", "<leader><leader>", "<cmd>noh<CR>")
-map("n" ,"<leader>sd", "<cmd>Telescope diagnostics<CR>")
 map("i", "<A-h>", "<C-o>h")
 map("i", "<A-j>", "<C-o>j")
 map("i", "<A-k>", "<C-o>k")
@@ -48,5 +61,5 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 map("x", "p", [["_dP]])
 map("n", "Q", "<nop>")
-map("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])--rename words in buffer
 

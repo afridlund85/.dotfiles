@@ -1,7 +1,14 @@
-local status_ok, nvim_treesitter = pcall(require, 'nvim-treesitter.configs')
-if not status_ok then
+local treesitter_ok, nvim_treesitter = pcall(require, 'nvim-treesitter.configs')
+if not treesitter_ok then
 	return
 end
+
+local treesitter_context_ok, treesitter_context = pcall(require, 'treesitter-context')
+if not treesitter_context_ok then
+	return
+end
+
+treesitter_context.setup{}
 
 nvim_treesitter.setup {
   ensure_installed = {

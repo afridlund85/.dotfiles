@@ -16,12 +16,14 @@ mason_lspconfig.setup{
 		"dockerls",
 		"gopls",
 		"html",
-		"intelephense",
 		"pyright",
+		-- "php-debug-adapter", -- can't ensure_installed
+		"phpactor",--alt to: "intelephense",
 		"rust_analyzer",
-		"sumneko_lua",
+		"lua_ls",
 		"tailwindcss",
 		"tsserver",
+		-- "yamllint", --can't ensure_installed
 		"yamlls"
 	}
 }

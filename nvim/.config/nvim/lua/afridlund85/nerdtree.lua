@@ -20,3 +20,4 @@ vim.cmd [[
 nerdtree.setup {
 }
 vim.opt[NERDTreeShowHidden] = 1
+vim.opt[NERDTreeQuitOnOpen] = 1

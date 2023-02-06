@@ -12,7 +12,9 @@ null_ls.setup({
         formatting.prettierd,
 		formatting.gofmt,
 		diagnostics.php,
-		diagnostics.yamlint,
+		-- diagnostics.phpstan,
+		-- diagnostics.psalm,
+		-- diagnostics.yamlint,
 		diagnostics.jsonlint,
 		diagnostics.shellcheck
     },

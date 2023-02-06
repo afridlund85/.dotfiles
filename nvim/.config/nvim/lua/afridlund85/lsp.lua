@@ -34,6 +34,9 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<cr>', bufopts)
 	--vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+	if  client.name == 'intelephense' then
+		vim.opt.autoindent = true
+	end
 end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -46,7 +49,11 @@ lspconfig.intelephense.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
-lspconfig.sumneko_lua.setup {
+-- lspconfig.phpactor.setup {
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- }
+lspconfig.lua_ls.setup {
 	on_attach = on_attach,
 	settings = {
 		Lua = {
