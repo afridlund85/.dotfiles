@@ -37,6 +37,7 @@ map("n", "<leader>l", "<C-W><C-V>")
 map("n", "<S-l>", "<cmd>bnext<CR>")
 map("n", "<S-h>", "<cmd>bprevious<CR>")
 map("n", "<Leader>q", "<cmd>Bdelete<CR>")
+map("n", "<C-q>", "<cmd>quit<CR>")
 
 -- dap
 

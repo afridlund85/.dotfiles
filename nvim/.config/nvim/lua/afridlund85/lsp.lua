@@ -111,4 +111,7 @@ lspconfig.tailwindcss.setup {}
 
 lspconfig.bashls.setup {}
 
-lspconfig.pyright.setup {}
+lspconfig.pyright.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
