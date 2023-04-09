@@ -89,7 +89,10 @@ return packer.startup(function(use)
 	use 'moll/vim-bbye'
 	use {
 		'nvim-telescope/telescope.nvim',
-		requires = { {'nvim-lua/plenary.nvim'} }
+		requires = {
+			{'nvim-lua/plenary.nvim'},
+			{ "nvim-telescope/telescope-live-grep-args.nvim"},
+		}
 	}
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use {"akinsho/toggleterm.nvim", tag = '*'}

@@ -13,16 +13,16 @@ vim.g.maplocalleader = " "
 
 --telescope
 map("n", "<C-p>", "<cmd>Telescope find_files<CR>")
+-- map("n", "<C-f>", "<cmd>Telescope live_grep<CR>")
 map("n", "<C-f>", "<cmd>Telescope live_grep<CR>")
+map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+map("n", "<leader>fw", ":lua require('telescope-live-grep-args.shortcuts').grep_word_under_cursor()<CR>")
+-- map("v", "<leader>fv", ":lua require('telescope-live-grep-args.shortcuts').grep_visual_selection()<CR>")
 map("n", "<leader>rf", "<cmd>Telescope resume<CR>")
 map("n" ,"<leader>sd", "<cmd>Telescope diagnostics<CR>")
 
---nerdtree
--- map("n", "<leader>e", "<cmd>NERDTreeToggle<CR>")
--- map("n", "<leader>sf", "<cmd>NERDTreeFind<CR>")
-
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
-map("n", "<leader>sf", "<cmd>NvimTreeFindFile<CR>")
+map("n", "<leader>o", "<cmd>NvimTreeFindFile<CR>")
 
 --window nav
 map("n", "<C-h>", "<C-w>h")
@@ -40,10 +40,8 @@ map("n", "<Leader>q", "<cmd>Bdelete<CR>")
 map("n", "<C-q>", "<cmd>quit<CR>")
 
 -- dap
-
 map("n", "<leader>dt", ":lua require('dapui').toggle()<CR>")
 map("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>")
-
 map("n", "<leader>dc", "<cmd>DapContinue<CR>")
 map("n", "<leader>ds", "<cmd>DapStepOver<CR>")
 map("n", "<leader>di", "<cmd>DapStepInto<CR>")

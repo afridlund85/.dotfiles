@@ -45,14 +45,14 @@ lspconfig.tsserver.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
-lspconfig.intelephense.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
--- lspconfig.phpactor.setup {
+-- lspconfig.intelephense.setup {
 -- 	on_attach = on_attach,
 -- 	capabilities = capabilities,
 -- }
+lspconfig.phpactor.setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
+}
 lspconfig.lua_ls.setup {
 	on_attach = on_attach,
 	settings = {
