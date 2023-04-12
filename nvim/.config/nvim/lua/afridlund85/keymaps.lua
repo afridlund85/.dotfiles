@@ -21,6 +21,8 @@ map("n", "<leader>fw", ":lua require('telescope-live-grep-args.shortcuts').grep_
 map("n", "<leader>rf", "<cmd>Telescope resume<CR>")
 map("n" ,"<leader>sd", "<cmd>Telescope diagnostics<CR>")
 
+map("n", "<leader>sr", ":lua require('spectre').open()<CR>")
+map("n", "<leader>sw", ":lua require('spectre').open_visual({select_word=true})<CR>")
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
 map("n", "<leader>o", "<cmd>NvimTreeFindFile<CR>")
 

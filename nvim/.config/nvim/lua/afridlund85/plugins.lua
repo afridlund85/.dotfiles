@@ -96,6 +96,12 @@ return packer.startup(function(use)
 	}
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use {"akinsho/toggleterm.nvim", tag = '*'}
+	use {
+		'nvim-pack/nvim-spectre',
+		requires = {
+			{'nvim-lua/plenary.nvim'},
+		}
+	}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

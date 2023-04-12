@@ -20,5 +20,6 @@ require('afridlund85.comment')
 require('afridlund85.autopairs')
 require('afridlund85.ts-autotag')
 require('afridlund85.toggleterm')
+require('afridlund85.spectre')
 
 require('afridlund85.keymaps')
