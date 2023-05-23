@@ -14,9 +14,7 @@ vim.g.maplocalleader = " "
 --telescope
 map("n", "<C-p>", "<cmd>Telescope find_files<CR>")
 -- map("n", "<C-f>", "<cmd>Telescope live_grep<CR>")
-map("n", "<C-f>", "<cmd>Telescope live_grep<CR>")
-map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
-map("n", "<leader>fw", ":lua require('telescope-live-grep-args.shortcuts').grep_word_under_cursor()<CR>")
+map("n", "<C-f>", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 -- map("v", "<leader>fv", ":lua require('telescope-live-grep-args.shortcuts').grep_visual_selection()<CR>")
 map("n", "<leader>rf", "<cmd>Telescope resume<CR>")
 map("n" ,"<leader>sd", "<cmd>Telescope diagnostics<CR>")
@@ -27,10 +25,10 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
 map("n", "<leader>o", "<cmd>NvimTreeFindFile<CR>")
 
 --window nav
-map("n", "<C-h>", "<C-w>h")
-map("n", "<C-j>", "<C-w>j")
-map("n", "<C-k>", "<C-w>k")
-map("n", "<C-l>", "<C-w>l")
+-- map("n", "<C-h>", "<C-w>h")
+-- map("n", "<C-j>", "<C-w>j")
+-- map("n", "<C-k>", "<C-w>k")
+-- map("n", "<C-l>", "<C-w>l")
 
 map("n", "<leader>j", "<C-W><C-S>")
 map("n", "<leader>l", "<C-W><C-V>")
@@ -39,7 +37,7 @@ map("n", "<leader>l", "<C-W><C-V>")
 map("n", "<S-l>", "<cmd>bnext<CR>")
 map("n", "<S-h>", "<cmd>bprevious<CR>")
 map("n", "<Leader>q", "<cmd>Bdelete<CR>")
-map("n", "<C-q>", "<cmd>quit<CR>")
+
 
 -- dap
 map("n", "<leader>dt", ":lua require('dapui').toggle()<CR>")
@@ -62,5 +60,6 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 map("x", "p", [["_dP]])
 map("n", "Q", "<nop>")
+map("n", "<C-q>", "<cmd>quit<CR>")
 map("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])--rename words in buffer
 
