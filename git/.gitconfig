@@ -2,7 +2,10 @@
 	name = Andreas Fridlund
 	email = afridlund85@gmail.com
 [core]
-        excludesfile = ~/.gitignore
-        editor = nvim
+	excludesfile = ~/.gitignore
+	editor = nvim
+	autocrlf = input
 [pull]
-        ff = only
+	ff = only
+[alias]
+	pu = "push --set-upstream origin HEAD"
