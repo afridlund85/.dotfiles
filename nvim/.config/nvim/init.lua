@@ -8,6 +8,7 @@ require('afridlund85.cmp')
 require('afridlund85.null_ls')
 require('afridlund85.treesitter')
 require('afridlund85.dap')
+require('afridlund85.rust_tools')
 
 require('afridlund85.telescope')
 -- require('afridlund85.nerdtree')

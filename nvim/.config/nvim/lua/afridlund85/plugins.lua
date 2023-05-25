@@ -77,6 +77,7 @@ return packer.startup(function(use)
 	use 'mfussenegger/nvim-dap'
 	use 'mfussenegger/nvim-dap-python'
 	use 'rcarriga/nvim-dap-ui'
+	use 'simrat39/rust-tools.nvim'
 
 	-- Theme & style
 	use 'morhetz/gruvbox'
