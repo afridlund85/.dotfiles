@@ -72,12 +72,15 @@ return packer.startup(function(use)
 	use 'steelsojka/headwind.nvim'
 	use 'numToStr/Comment.nvim'
 	use 'windwp/nvim-ts-autotag'
+	use {
+		'simrat39/rust-tools.nvim',
+		requires = 'neovim/nvim-lspconfig',
+	}
 
 	-- DAP
 	use 'mfussenegger/nvim-dap'
 	use 'mfussenegger/nvim-dap-python'
 	use 'rcarriga/nvim-dap-ui'
-	use 'simrat39/rust-tools.nvim'
 
 	-- Theme & style
 	use 'morhetz/gruvbox'
@@ -100,9 +103,7 @@ return packer.startup(function(use)
 	use {"akinsho/toggleterm.nvim", tag = '*'}
 	use {
 		'nvim-pack/nvim-spectre',
-		requires = {
-			{'nvim-lua/plenary.nvim'},
-		}
+		requires = 'nvim-lua/plenary.nvim',
 	}
 
 	use {

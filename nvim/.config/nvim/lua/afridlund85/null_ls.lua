@@ -11,6 +11,7 @@ null_ls.setup({
     sources = {
         formatting.prettierd,
 		formatting.gofmt,
+		-- formatting.rustfmt.with({extra_args = { "--edition=2021" }}),
 		diagnostics.php,
 		-- diagnostics.phpstan,
 		-- diagnostics.psalm,
