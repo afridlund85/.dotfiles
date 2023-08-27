@@ -34,9 +34,23 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<cr>', bufopts)
 	--vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
-	if  client.name == 'intelephense' then
+	if client.name == 'intelephense' then
 		vim.opt.autoindent = true
 	end
+	vim.api.nvim_create_autocmd("CursorHold", {
+		buffer = bufnr,
+		callback = function()
+			local opts = {
+				focusable = false,
+				close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+				border = 'rounded',
+				source = 'always',
+				prefix = ' ',
+				scope = 'cursor',
+			}
+			vim.diagnostic.open_float(nil, opts)
+		end
+	})
 end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -81,13 +95,14 @@ lspconfig.gopls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
-lspconfig.rust_analyzer.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
+-- lspconfig.rust_analyzer.setup {
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- }
 lspconfig.yamlls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
+	filetypes = { 'yml', 'yaml', 'neon.dist'}
 }
 lspconfig.dockerls.setup {
 	on_attach = on_attach,
@@ -96,8 +111,9 @@ lspconfig.dockerls.setup {
 lspconfig.html.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
+	filetypes = { 'html', 'hbt', 'twig', 'hbs'}
 }
-lspconfig.cssls.setup{
+lspconfig.cssls.setup {
 	settings = {
 		css = {
 			lint = {

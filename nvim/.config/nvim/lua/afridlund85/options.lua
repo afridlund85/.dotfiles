@@ -4,6 +4,7 @@ vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 vim.opt.guifont = "DroidSansMono Nerd Font:h12"
 vim.opt.mouse = ""
+vim.o.updatetime = 250
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
