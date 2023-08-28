@@ -1,4 +1,3 @@
-require('afridlund85.options')
 require('afridlund85.plugins')
 require('afridlund85.colorscheme')
 
@@ -24,3 +23,4 @@ require('afridlund85.toggleterm')
 require('afridlund85.spectre')
 
 require('afridlund85.keymaps')
+require('afridlund85.options')
