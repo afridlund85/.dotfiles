@@ -1,0 +1,25 @@
+
+partial alphanumeric_keys
+xkb_symbols "us" {
+    include "us"
+
+    name[Group1]="US (Swedish)";
+
+    key <AC10> { [ NoSymbol, NoSymbol, odiaeresis, Odiaeresis ] };
+    key <AC11> { [ NoSymbol, NoSymbol, adiaeresis, Adiaeresis ] };
+    key <AD11> { [ NoSymbol, NoSymbol, aring, Aring ] };
+
+    include "level3(ralt_switch)"
+};
+partial alphanumeric_keys
+xkb_symbols "us" {
+    include "us"
+
+    name[Group1]="US (Swedish åäö)";
+
+    key <AD11> { [ bracketleft, braceleft, aring, Aring ] };
+    key <AC10> { [ semicolon, colon, odiaeresis, Odiaeresis ] };
+    key <AC11> { [ apostrophe, quotedbl, adiaeresis, Adiaeresis ] };
+
+    include "level3(ralt_switch)"
+};

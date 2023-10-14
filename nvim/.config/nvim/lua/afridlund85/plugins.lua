@@ -1,7 +1,7 @@
 local fn = vim.fn
 
 -- Automatically install packer
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap = fn.system({
 		'git',
@@ -21,6 +21,10 @@ vim.cmd [[
 		autocmd!
 		autocmd BufWritePost plugins.lua source <afile> | PackerSync
 	augroup end
+]]
+
+vim.cmd [[
+    autocmd BufRead,BufNewFile Jenkinsfile set filetype=groovy
 ]]
 
 -- Use a protected call so we don't error out on first use
@@ -46,16 +50,22 @@ return packer.startup(function(use)
 	use 'christoomey/vim-tmux-navigator'
 
 	-- LSP, Code complete & snippets etc
-	use {
-		'nvim-treesitter/nvim-treesitter',
-		run = ":TSUpdate",
-	}
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+    }
 	use 'nvim-treesitter/nvim-treesitter-context'
 	use {
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
-		'neovim/nvim-lspconfig'
+		'neovim/nvim-lspconfig',
+        'WhoIsSethDaniel/mason-tool-installer.nvim'
 	}
+	use 'mfussenegger/nvim-lint'
+	use 'stevearc/conform.nvim'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
@@ -66,12 +76,19 @@ return packer.startup(function(use)
 	use 'L3MON4D3/LuaSnip'
 	use 'saadparwaiz1/cmp_luasnip'
 	use 'rafamadriz/friendly-snippets'
-	use 'jose-elias-alvarez/null-ls.nvim'
 	use 'matze/vim-move'
-	use 'windwp/nvim-autopairs'
-	use 'steelsojka/headwind.nvim'
-	use 'numToStr/Comment.nvim'
-	use 'windwp/nvim-ts-autotag'
+	use {
+		'windwp/nvim-autopairs',
+		config = function() require('nvim-autopairs').setup() end
+	}
+	use {
+		'numToStr/Comment.nvim',
+		config = function() require('Comment').setup() end
+	}
+	use {
+		'windwp/nvim-ts-autotag',
+		config = function() require('nvim-ts-autotag').setup() end
+	}
 	use {
 		'simrat39/rust-tools.nvim',
 		requires = 'neovim/nvim-lspconfig',
@@ -84,26 +101,39 @@ return packer.startup(function(use)
 
 	-- Theme & style
 	use 'morhetz/gruvbox'
-	use 'nvim-lualine/lualine.nvim'
-	use 'lewis6991/gitsigns.nvim'
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+	}
+	use {
+		'lewis6991/gitsigns.nvim',
+		requires = { 'nvim-lua/plenary.nvim' },
+		config = function() require('gitsigns').setup() end
+	}
 
 	-- files, nav & buffers
 	-- use 'preservim/nerdtree'
 	use 'nvim-tree/nvim-tree.lua'
-	use 'akinsho/bufferline.nvim'
+	use {
+		'akinsho/bufferline.nvim',
+		tag = "*",
+		requires = 'nvim-tree/nvim-web-devicons',
+		config = function() require('bufferline').setup() end
+	}
 	use 'moll/vim-bbye'
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {
-			{'nvim-lua/plenary.nvim'},
-			{ "nvim-telescope/telescope-live-grep-args.nvim"},
+			{ 'nvim-lua/plenary.nvim' },
+			{ "nvim-telescope/telescope-live-grep-args.nvim" },
 		}
 	}
-	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-	use {"akinsho/toggleterm.nvim", tag = '*'}
+	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	use { "akinsho/toggleterm.nvim", tag = '*' }
 	use {
 		'nvim-pack/nvim-spectre',
 		requires = 'nvim-lua/plenary.nvim',
+		config = function() require('spectre').setup() end
 	}
 
 	use {

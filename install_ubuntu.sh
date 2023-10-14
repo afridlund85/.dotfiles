@@ -7,8 +7,6 @@ sudo apt -qq -y install curl wget git build-essential software-properties-common
 	fd-find \
 	yamllint \
 	shellcheck \
-    php8.0-{bcmath,xml,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi} \
-    php8.1-{bcmath,xml,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi} \
     php8.2-{bcmath,xml,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi} \
 	python3-venv \
 	python3-pip

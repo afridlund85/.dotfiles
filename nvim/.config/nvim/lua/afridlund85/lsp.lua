@@ -21,6 +21,31 @@ vim.diagnostic.config({
 	severity_sort = false,
 })
 
+local conform_status_ok, conform = pcall(require, 'conform')
+if conform_status_ok then
+	conform.setup({
+		formatters_by_ft = {
+			php = { {'phpcbf', 'php_cs_fixer'}}, --first of
+			lua = { "stylua" },
+			python = { "isort", "black" }, --both
+			javascript = { { "prettierd", "prettier" } }, --first of
+		},
+	})
+end
+local lint_status_ok, lint = pcall(require, 'lint')
+if lint_status_ok then
+	lint.linters_by_ft = {
+		php = { 'php', },
+		javascript = { 'eslint' },
+		lua = { 'luacheck' },
+	}
+	vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+		callback = function()
+			lint.try_lint()
+		end,
+	})
+end
+
 local on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -102,7 +127,7 @@ lspconfig.gopls.setup {
 lspconfig.yamlls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
-	filetypes = { 'yml', 'yaml', 'neon.dist'}
+	filetypes = { 'yml', 'yaml', 'neon.dist' }
 }
 lspconfig.dockerls.setup {
 	on_attach = on_attach,
@@ -111,7 +136,7 @@ lspconfig.dockerls.setup {
 lspconfig.html.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
-	filetypes = { 'html', 'hbt', 'twig', 'hbs'}
+	filetypes = { 'html', 'hbt', 'twig', 'hbs', 'thtml', 'handlebars', 'html.handlebars'}
 }
 lspconfig.cssls.setup {
 	settings = {
@@ -131,3 +156,9 @@ lspconfig.pyright.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
+lspconfig.groovyls.setup{
+    filetypes= {
+        'Jenkinsfile'
+    }
+}
+lspconfig.ember.setup {}

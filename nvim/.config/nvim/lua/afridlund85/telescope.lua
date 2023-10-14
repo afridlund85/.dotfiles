@@ -38,7 +38,7 @@ end
 telescope.setup {
 	defaults = {
 		buffer_previewer_maker = new_maker,
-		layout_strategy = 'vertical',
+		layout_strategy = 'flex',
 		layout_config = {
 			vertical = {
 				width = 0.95
@@ -48,10 +48,17 @@ telescope.setup {
 	pickers = {
 		live_grep = {
 			additional_args = {
-				"--with-filename",
-				"--only-matching"
+                "--files-with-matches",
+				-- "--with-filename",
+				-- "--only-matching"
 			}
-		}
+		},
+        lsp_references = {
+            show_line = false
+		},
+        lsp_definitions = {
+            show_line = false
+        }
 	},
 	extensions = {
 		fzf = {

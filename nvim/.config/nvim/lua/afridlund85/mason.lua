@@ -7,6 +7,10 @@ local mason_lsp_ok, mason_lspconfig = pcall(require, 'mason-lspconfig')
 if not mason_lsp_ok then
 	return
 end
+local mason_tool_ok, mason_tool_installer = pcall(require, 'mason-tool-installer')
+if not mason_tool_ok then
+	return
+end
 
 mason.setup()
 mason_lspconfig.setup{
@@ -14,17 +18,38 @@ mason_lspconfig.setup{
 		"bashls",
 		"cssls",
 		"dockerls",
+        "eslint",
 		"gopls",
+        "groovyls",
 		"html",
+        "intelephense",
+        "jsonls",
+        "jsonnet_ls",
+        "lua_ls",
 		"pyright",
-		-- "php-debug-adapter", -- can't ensure_installed
-		"phpactor",--alt to: "intelephense",
 		"rust_analyzer",
-		"lua_ls",
-		"tailwindcss",
 		"tsserver",
-		-- "yamllint", --can't ensure_installed
-		"yamlls"
+		"yamlls",
 	}
 }
-
+mason_tool_installer.setup{
+    ensure_installed = {
+        "black",
+        "codelldb",
+        "eslint",
+        "gofumpt",
+        "isort",
+        "jsonlint",
+        "luacheck",
+        "php-cs-fixer",
+        "php-debug-adapter",
+        "phpcbf",
+        "prettierd",
+        "shellcheck",
+        "stylua",
+    },
+    auto_update = true,
+    run_on_start = true,
+    -- start_delay = 5000,
+    -- debounce_hours = 12,
+}
