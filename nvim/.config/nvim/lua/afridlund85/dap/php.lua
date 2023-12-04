@@ -17,22 +17,22 @@ dap.adapters.php = {
 }
 
 dap.configurations.php = {
-	{
-		type = "php",
-		request = "launch",
-		name = "Xdebug PHP",
-		port = 9003,
-		-- pathMapping= {
-		-- 	["/storage/vol3/fortnox-andfri"] = "/home/andreas/dev/fortnox"
-		-- },
-	},
+	-- {
+	-- 	type = "php",
+	-- 	request = "launch",
+	-- 	name = "Xdebug PHP",
+	-- 	port = 9003,
+	-- 	-- pathMapping= {
+	-- 	-- 	["/storage/vol3/fortnox-andfri"] = "/home/andreas/dev/fortnox"
+	-- 	-- },
+	-- },
 	{
 		type = "php",
 		request = "launch",
 		name = "Remote F3",
 		port = 9000,
 		log = true,
-		serverSourceRoot = "/storage/vol3/fortnox-andfri/webapp",
-		localSourceRoot = "/home/andreas/dev/fortnox/webapp"
+		serverSourceRoot = "/storage/vol3/fortnox-andfri/ui",
+		localSourceRoot = "/home/andreas/dev/fortnox/ui"
 	}
 }
