@@ -1,7 +1,4 @@
 require('afridlund85.plugins')
-require('afridlund85.colorscheme')
-
-require('afridlund85.mason')
 require('afridlund85.lsp')
 require('afridlund85.cmp')
 require('afridlund85.treesitter')

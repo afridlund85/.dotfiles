@@ -1,21 +1,21 @@
 local status_ok, gitsigns = pcall(require, 'gitsigns')
 if not status_ok then
-	return
+    return
 end
 
-gitsigns.setup{
-	on_attach = function(bufnr)
-		local gs = package.loaded.gitsigns
+gitsigns.setup {
+    on_attach = function(bufnr)
+        local gs = package.loaded.gitsigns
 
-		local function map(mode, l, r, opts)
-		  opts = opts or {}
-		  opts.buffer = bufnr
-		  vim.keymap.set(mode, l, r, opts)
-		end
+        local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+        end
 
-		map('n', '<leader>hb', function() gs.blame_line{full=true} end)
-		map('n', '<leader>tb', gs.toggle_current_line_blame)
-		map('n', '<leader>hd', gs.diffthis)
-	    map('n', '<leader>hD', function() gs.diffthis('~') end)
-	end
+        map('n', '<leader>gb', function() gs.blame_line { full = true } end, { desc = 'blame line' })
+        map('n', '<leader>gt', gs.toggle_current_line_blame, { desc = 'blame line toggle' })
+        map('n', '<leader>gd', gs.diffthis, { desc = 'git diffthis' })
+        map('n', '<leader>gD', function() gs.diffthis('~') end, { desc = 'git diffthis ~' })
+    end
 }

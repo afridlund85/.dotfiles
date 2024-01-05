@@ -1,55 +1,71 @@
-local lspconfig_status_ok, lspconfig = pcall(require, 'lspconfig')
-if not lspconfig_status_ok then
-    return
-end
-local cmp_nvim_lsp_status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
-if not cmp_nvim_lsp_status_ok then
-    return
-end
+local mason = require "mason"
+local mason_lspconfig = require "mason-lspconfig"
+local mason_tool_installer = require "mason-tool-installer"
+local lspconfig = require "lspconfig"
+local cmp_nvim_lsp = require "cmp_nvim_lsp"
+local conform = require "conform"
+local lint = require "lint"
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
+mason.setup()
+mason_lspconfig.setup{
+	ensure_installed = {
+		"bashls",
+		"cssls",
+		"dockerls",
+        "eslint",
+		"gopls",
+        "groovyls",
+		"html",
+        "intelephense",
+        "jsonls",
+        "jsonnet_ls",
+        "lua_ls",
+		"pyright",
+		"rust_analyzer",
+		"tsserver",
+		"yamlls",
+	}
+}
+mason_tool_installer.setup {
+    ensure_installed = {
+        "black",
+        "codelldb",
+        "eslint",
+        "gofumpt",
+        "isort",
+        "jsonlint",
+        "luacheck",
+        "php-cs-fixer",
+        "php-debug-adapter",
+        "phpcbf",
+        "prettierd",
+        "shellcheck",
+        "stylua",
+    },
+    auto_update = true,
+    run_on_start = true,
+    -- start_delay = 5000,
+    -- debounce_hours = 12,
+}
 
-vim.diagnostic.config({
-    virtual_text = true,
-    signs = true,
-    underline = true,
-    update_in_insert = false,
-    severity_sort = false,
+conform.setup({
+    formatters_by_ft = {
+        php = { { 'phpcbf', 'php_cs_fixer' } },       --first of
+        lua = { "stylua" },
+        python = { "isort", "black" },                --both
+        javascript = { { "prettierd", "prettier" } }, --first of
+    },
 })
-
-local conform_status_ok, conform = pcall(require, 'conform')
-if conform_status_ok then
-    conform.setup({
-        formatters = {
-            phpcbf = {
-                cwd = require("conform.util").root_file({ "composer.json" }),
-            }
-        },
-        formatters_by_ft = {
-            php = { { 'phpcbf', 'php_cs_fixer' } }, --first of
-            lua = { "stylua" },
-            python = { "isort", "black" },       --both
-            javascript = { { "prettierd", "prettier" } }, --first of
-        },
-    })
-end
-local lint_status_ok, lint = pcall(require, 'lint')
-if lint_status_ok then
-    lint.linters_by_ft = {
-        php = { 'php', },
-        javascript = { 'eslint_d' },
-        lua = { 'luacheck' },
-    }
-    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        callback = function()
-            lint.try_lint()
-        end,
-    })
-end
+lint.linters_by_ft = {
+    php = { 'php', },
+    javascript = { 'eslint' },
+    lua = { 'luacheck' },
+}
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    callback = function()
+        lint.try_lint()
+    end,
+})
 
 local on_attach = function(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -84,7 +100,8 @@ local on_attach = function(client, bufnr)
     })
 end
 
-local capabilities = cmp_nvim_lsp.default_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 lspconfig.tsserver.setup {
     on_attach = on_attach,
@@ -94,10 +111,6 @@ lspconfig.intelephense.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
--- lspconfig.phpactor.setup {
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- }
 lspconfig.lua_ls.setup {
     on_attach = on_attach,
     settings = {
@@ -126,10 +139,10 @@ lspconfig.gopls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
--- lspconfig.rust_analyzer.setup {
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- }
+lspconfig.rust_analyzer.setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
+}
 lspconfig.yamlls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -153,11 +166,8 @@ lspconfig.cssls.setup {
         },
     },
 }
-
--- lspconfig.tailwindcss.setup {}
-
+lspconfig.tailwindcss.setup {}
 lspconfig.bashls.setup {}
-
 lspconfig.pyright.setup {
     on_attach = on_attach,
     capabilities = capabilities
@@ -168,3 +178,4 @@ lspconfig.groovyls.setup {
     }
 }
 lspconfig.ember.setup {}
+

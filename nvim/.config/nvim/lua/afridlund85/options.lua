@@ -4,6 +4,8 @@ vim.opt.fileencoding = "utf-8"
 vim.opt.guifont = "RobotoMono Nerd Font:h12"
 vim.opt.mouse = ""
 vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+vim.cmd "colorscheme gruvbox"
 
 vim.opt.autoindent = true
 vim.opt.tabstop = 4
@@ -46,3 +48,25 @@ vim.opt.shortmess:append "c"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = false,
+})
+
+-- vim.cmd[[
+-- try
+--   colorscheme gruvbox
+-- catch /^Vim\%((\a\+)\)\=:E185/
+--   colorscheme default
+--   set background=dark
+-- endtry
+-- ]]

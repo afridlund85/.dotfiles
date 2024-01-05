@@ -1,4 +1,4 @@
-function map(mode, lhs, rhs, opts)
+local function map(mode, lhs, rhs, opts)
     local options = { noremap = true, silent = true }
     if opts then
         options = vim.tbl_extend("force", options, opts)
@@ -12,17 +12,17 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 --telescope
-map("n", "<C-p>", "<cmd>Telescope find_files<CR>")
+map("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
 -- map("n", "<C-f>", "<cmd>Telescope live_grep<CR>")
-map("n", "<C-f>", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+map("n", "<leader>ft", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 -- map("v", "<leader>fv", ":lua require('telescope-live-grep-args.shortcuts').grep_visual_selection()<CR>")
-map("n", "<leader>rf", "<cmd>Telescope resume<CR>")
-map("n" ,"<leader>sd", "<cmd>Telescope diagnostics<CR>")
+map("n", "<leader>fa", "<cmd>Telescope resume<CR>")
+map("n" ,"<leader>fd", "<cmd>Telescope diagnostics<CR>")
 
-map("n", "<leader>sr", ":lua require('spectre').open()<CR>")
-map("n", "<leader>sw", ":lua require('spectre').open_visual({select_word=true})<CR>")
-map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
-map("n", "<leader>o", "<cmd>NvimTreeFindFile<CR>")
+map("n", "<leader>fr", ":lua require('spectre').open()<CR>")
+map("n", "<leader>fR", ":lua require('spectre').open_visual({select_word=true})<CR>")
+map("n", "<leader>fe", "<cmd>NvimTreeToggle<CR>")
+map("n", "<leader>fb", "<cmd>NvimTreeFindFile<CR>")
 
 --window nav
 -- map("n", "<C-h>", "<C-w>h")
@@ -60,6 +60,10 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 map("x", "p", [["_dP]])
 map("n", "Q", "<nop>")
+map("n", "q", "<nop>")
+map("n", "z", "<nop>")
+map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map("n", "<C-q>", "<cmd>quit<CR>")
 map("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])--rename words in buffer
 
