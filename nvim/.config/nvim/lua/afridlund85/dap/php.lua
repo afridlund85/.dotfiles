@@ -13,7 +13,6 @@ dap.adapters.php = {
 	type = "executable",
 	command = "node",
 	args = { php_debug_path }
-	-- command = "/home/andreas/.local/share/nvim/mason/bin/php-debug-adapter",
 }
 
 dap.configurations.php = {
@@ -22,9 +21,6 @@ dap.configurations.php = {
 		request = "launch",
 		name = "Xdebug PHP",
 		port = 9003,
-		-- pathMapping= {
-		-- 	["/storage/vol3/fortnox-andfri"] = "/home/andreas/dev/fortnox"
-		-- },
 	},
 	{
 		type = "php",
@@ -33,7 +29,7 @@ dap.configurations.php = {
 		port = 9000,
 		log = true,
 		serverSourceRoot = "/storage/vol3/fortnox-andfri/ui",
-		localSourceRoot = "/home/andreas/dev/fortnox/ui"
+		localSourceRoot = "/home/andreas.fridlund@fnox.it/dev/fortnox/ui"
 	},
 	{
 		type = "php",
@@ -42,6 +38,6 @@ dap.configurations.php = {
 		port = 9000,
 		log = true,
 		serverSourceRoot = "/storage/vol3/fortnox-andfri/webapp",
-		localSourceRoot = "/home/andreas/dev/fortnox/webapp"
+		localSourceRoot = "/home/andreas.fridlund@fnox.it/dev/fortnox/webapp"
 	}
 }

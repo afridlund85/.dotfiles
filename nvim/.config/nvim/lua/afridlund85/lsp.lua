@@ -59,7 +59,7 @@ conform.setup({
 lint.linters_by_ft = {
     php = { 'php', },
     javascript = { 'eslint' },
-    lua = { 'luacheck' },
+    -- lua = { 'luacheck' },
 }
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     callback = function()
