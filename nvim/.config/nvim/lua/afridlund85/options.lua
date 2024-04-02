@@ -1,7 +1,7 @@
 vim.opt.clipboard = "unnamedplus"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
-vim.opt.guifont = "RobotoMono Nerd Font:h12"
+-- vim.opt.guifont = "RobotoMono Nerd Font:h12"
 vim.opt.mouse = ""
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300

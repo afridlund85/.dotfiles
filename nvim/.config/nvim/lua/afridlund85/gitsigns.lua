@@ -13,9 +13,9 @@ gitsigns.setup {
             vim.keymap.set(mode, l, r, opts)
         end
 
-        map('n', '<leader>gb', function() gs.blame_line { full = true } end, { desc = 'blame line' })
-        map('n', '<leader>gt', gs.toggle_current_line_blame, { desc = 'blame line toggle' })
-        map('n', '<leader>gd', gs.diffthis, { desc = 'git diffthis' })
-        map('n', '<leader>gD', function() gs.diffthis('~') end, { desc = 'git diffthis ~' })
+        map('n', '<leader>hb', function() gs.blame_line { full = true } end, { desc = 'blame line' })
+        map('n', '<leader>ht', gs.toggle_current_line_blame, { desc = 'blame line toggle' })
+        map('n', '<leader>hd', gs.diffthis, { desc = 'git diffthis' })
+        map('n', '<leader>hD', function() gs.diffthis('~') end, { desc = 'git diffthis ~' })
     end
 }

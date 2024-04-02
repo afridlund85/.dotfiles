@@ -28,6 +28,7 @@ nvim_treesitter.setup {
         "regex",
         "rust",
         "scss",
+        "sql",
         "tsx",
         "typescript",
         "yaml"

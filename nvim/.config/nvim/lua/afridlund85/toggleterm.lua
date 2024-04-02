@@ -5,7 +5,7 @@ end
 
 toggleterm.setup{
 	open_mapping = [[<c-t>]],
-	direction = "float",
+	-- direction = "float",
 	shade_filetypes = {},
 	shade_terminals = true,
 	shading_factor = 3,

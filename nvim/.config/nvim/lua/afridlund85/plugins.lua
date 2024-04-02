@@ -48,7 +48,12 @@ return packer.startup(function(use)
 	use 'nvim-lua/plenary.nvim'
 	use 'kyazdani42/nvim-web-devicons'
 	use 'christoomey/vim-tmux-navigator'
-
+    use {
+        "max397574/better-escape.nvim",
+        config = function()
+            require("better_escape").setup({mapping = {"kj"}})
+        end,
+    }
 	-- LSP, Code complete & snippets etc
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -58,6 +63,7 @@ return packer.startup(function(use)
         end,
     }
 	use 'nvim-treesitter/nvim-treesitter-context'
+    use "gbprod/php-enhanced-treesitter.nvim"
 	use {
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
@@ -145,6 +151,10 @@ return packer.startup(function(use)
 		end
 	}
 
+    use{
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    }
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then

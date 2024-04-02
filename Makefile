@@ -88,8 +88,8 @@ fzf:
 
 fonts:
 	mkdir -p ~/.local/share/fonts
-	curl -fLo ~/.local/share/fonts/RobotoMonoNerdFont-Regular.ttf https://github.com/ryanoasis/nerd-fonts/raw/v3.0.0/patched-fonts/RobotoMono/Regular/RobotoMonoNerdFont-Regular.ttf
-	curl -fLo ~/.local/share/fonts/DroidSansMNerdFont-Regular.otf https://github.com/ryanoasis/nerd-fonts/raw/v3.0.0/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
+	curl -fLo ~/.local/share/fonts/RobotoMonoNerdFont-Regular.ttf https://github.com/ryanoasis/nerd-fonts/raw/v3.1.1/patched-fonts/RobotoMono/Regular/RobotoMonoNerdFont-Regular.ttf
+	curl -fLo ~/.local/share/fonts/DroidSansMNerdFont-Regular.otf https://github.com/ryanoasis/nerd-fonts/raw/v3.1.1/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
 
 lsp: ~/.nodejs /usr/local/go/bin/go
 	/usr/local/go/bin/go install golang.org/x/tools/gopls@latest
