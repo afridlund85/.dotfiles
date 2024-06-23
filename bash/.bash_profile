@@ -4,7 +4,7 @@
 
 alias ls='ls -alh'
 alias v='nvim' # default Neovim config
-alias vz='NVIM_APPNAME=nvim-lazy nvim' # LazyVim
+alias vz='NVIM_APPNAME=lazy nvim' # LazyVim
 
 export PS1='\w$(__git_ps1 " (%s)")\$ '
 
@@ -13,7 +13,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-NVIM_PATH="/usr/local/nvim/bin"
+NVIM_PATH="/opt/nvim-linux64/bin"
 export DENO_INSTALL="$HOME/.deno"
 export GOPATH="$HOME/go"
 GO_BIN_PATH="/usr/local/go/bin/"

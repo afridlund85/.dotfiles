@@ -48,12 +48,12 @@ return packer.startup(function(use)
 	use 'nvim-lua/plenary.nvim'
 	use 'kyazdani42/nvim-web-devicons'
 	use 'christoomey/vim-tmux-navigator'
-    use {
-        "max397574/better-escape.nvim",
-        config = function()
-            require("better_escape").setup({mapping = {"kj"}})
-        end,
-    }
+    -- use {
+    --     "max397574/better-escape.nvim",
+    --     config = function()
+    --         require("better_escape").setup({mapping = {"kj"}})
+    --     end,
+    -- }
 	-- LSP, Code complete & snippets etc
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -102,8 +102,9 @@ return packer.startup(function(use)
 
 	-- DAP
 	use 'mfussenegger/nvim-dap'
+	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
 	use 'mfussenegger/nvim-dap-python'
-	use 'rcarriga/nvim-dap-ui'
+	-- use 'rcarriga/nvim-dap-ui'
 
 	-- Theme & style
 	use 'morhetz/gruvbox'
