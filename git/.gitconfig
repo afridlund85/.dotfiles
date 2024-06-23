@@ -1,6 +1,6 @@
 [user]
 	name = Andreas Fridlund
-	email = afridlund85@gmail.com
+	email = andreas.fridlund@fortnox.se
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
