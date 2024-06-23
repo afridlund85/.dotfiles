@@ -4,7 +4,7 @@
 
 alias ls='ls -alh'
 alias v='nvim' # default Neovim config
-alias vz='NVIM_APPNAME=nvim-lazy nvim' # LazyVim
+alias vz='NVIM_APPNAME=lazy nvim' # LazyVim
 
 export PS1='\w$(__git_ps1 " (%s)")\$ '
 
