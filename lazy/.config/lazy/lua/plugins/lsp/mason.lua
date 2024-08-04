@@ -47,6 +47,7 @@ return {
                 "prettierd",
                 "shellcheck",
                 "stylua",
+                "templ",
             },
             auto_update = true,
             run_on_start = true,

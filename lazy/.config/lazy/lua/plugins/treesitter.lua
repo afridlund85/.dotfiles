@@ -32,6 +32,7 @@ return {
 					"rust",
 					"scss",
 					"sql",
+                    "templ",
 					"tsx",
 					"typescript",
 					"yaml",

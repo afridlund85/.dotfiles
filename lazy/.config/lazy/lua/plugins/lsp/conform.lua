@@ -18,6 +18,7 @@ return {
 			python = { "isort", "black" }, --both
 			javascript = { { "prettierd", "prettier" } }, --first of
 			go = { "gofumpt" },
+            templ = { "templ" },
 		},
 		default_format_opts = {
 			lsp_format = "fallback",
