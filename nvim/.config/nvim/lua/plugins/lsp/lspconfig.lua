@@ -15,10 +15,7 @@ return {
 				end
 				vim.keymap.set(mode, lhs, rhs, options)
 			end
-			-- map("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "***deprecated*** declarations" })
-			-- map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "***deprecated*** definitions" })
 			map("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover" })
-			-- map("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "***Deprecated*** Implementations" })
 			map("n", "<C-k>", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Signature Help" })
 			map("n", "<leader>D", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "Type Definition" })
 			map("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename" })
@@ -47,14 +44,6 @@ return {
 				'<cmd>lua require("telescope.builtin").lsp_definitions()<cr>',
 				{ buffer = bufnr, desc = "Definitions" }
 			)
-			--map('n', 'gr', vim.lsp.buf.references, {buffer=bufnr, desc = ''})
-			-- map("n", "<leader>cf", function()
-			--     require("conform").format({ async = true })
-			-- end, { buffer = bufnr, desc = "Code Format" })
-			-- map("n", "<leader>cl", function()
-			--     require("lint").try_lint()
-			-- end, { buffer = bufnr, desc = "Code Lint" })
-			-- map('n', '<leader>cf', function() vim.lsp.buf.format { async = true } end, {buffer=bufnr, desc = ''})
 			if client.name == "intelephense" then
 				vim.opt.autoindent = true
 			end
@@ -77,10 +66,25 @@ return {
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-		lspconfig.tsserver.setup({
+		lspconfig.ts_ls.setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
 		})
+		-- lspconfig.phpactor.setup({
+		-- 	on_attach = on_attach,
+		-- 	capabilities = capabilities,
+		-- 	init_options = {
+		-- 		["language_server.diagnostics_on_update"] = false,
+		-- 		["language_server.diagnostics_on_open"] = false,
+		-- 		["language_server.diagnostics_on_save"] = false,
+		-- 		["language_server_phpstan.enabled"] = false,
+		-- 		["language_server_psalm.enabled"] = false,
+		-- 	},
+		-- })
+		-- lspconfig.phan.setup({
+		-- 	on_attach = on_attach,
+		-- 	capabilities = capabilities,
+		-- })
 		lspconfig.intelephense.setup({
 			on_attach = on_attach,
 			capabilities = capabilities,

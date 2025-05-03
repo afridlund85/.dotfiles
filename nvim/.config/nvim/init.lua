@@ -1,15 +1,31 @@
-require('afridlund85.plugins')
-require('afridlund85.lsp')
-require('afridlund85.cmp')
-require('afridlund85.treesitter')
-require('afridlund85.dap')
-require('afridlund85.rust_tools')
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
 
-require('afridlund85.telescope')
-require('afridlund85.nvim_tree')
-require('afridlund85.gitsigns')
-require('afridlund85.lualine')
-require('afridlund85.toggleterm')
+vim.opt.rtp:prepend(lazypath)
 
-require('afridlund85.keymaps')
-require('afridlund85.options')
+vim.keymap.set("", "<Space>", "<Nop>")
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- require("lazy").setup("plugins")
+require("lazy").setup({
+	spec = {
+		{ import = "plugins" },
+		{ import = "plugins.lsp" },
+		{ import = "plugins.editor" },
+	},
+})
+require("config.options")
+require("config.keymaps")
