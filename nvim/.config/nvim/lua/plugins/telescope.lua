@@ -31,7 +31,23 @@ return {
 		require("telescope").setup({
 			defaults = {
 				buffer_previewer_maker = new_maker,
-                layout_strategy = "vertical",
+				-- layout_strategy = "vertical",
+				layout_strategy = "bottom_pane",
+                layout_config = { height = 0.75}
+			},
+			pickers = {
+				lsp_references = {
+                    -- theme = "ivy",
+					fname_width = 120,
+					-- path_display = function(opts, path)
+					-- 	local tail = require("telescope.utils").path_tail(path)
+					-- 	return string.format("%s (%s)", tail, path), { { { 1, #tail }, "Constant" } }
+					-- end,
+				},
+				lsp_definitions = {
+                    -- theme = "ivy",
+					fname_width = 120,
+				},
 			},
 			extensions = {
 				fzf = {
