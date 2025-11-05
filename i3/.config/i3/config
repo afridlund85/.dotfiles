@@ -39,6 +39,13 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+exec_always --no-startup-id autotiling
+
+# keybinding to lock screen
+bindsym Control+Mod1+l exec "i3lock -c 000000"
+# auto lock the screen
+exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000\""
+
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up j
@@ -242,14 +249,5 @@ client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
 client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 client.urgent           $red $red $white $red $red
 
-#######################################################################
-# automatically start i3-config-wizard to offer the user to create a
-# keysym-based config which used their favorite modifier (alt or windows)
-#
-# i3-config-wizard will not launch if there already is a config file
-# in ~/.config/i3/config (or $XDG_CONFIG_HOME/i3/config if set) or
-# ~/.i3/config.
-#
-# Please remove the following exec line:
-#######################################################################
-exec i3-config-wizard
+default_border pixel 1
+default_floating_border pixel 1
