@@ -1,6 +1,7 @@
 
 alias v='nvim' # default Neovim config
 alias ll='ls -alh'
+alias vv="NVIM_APPNAME=nvim_12 nvim"
 
 export PS1='\w$(__git_ps1 " (%s)")\$ '
 
@@ -17,7 +18,7 @@ export NODE_PATH
 export NVM_DIR="$HOME/.config/nvm"
 export RUST_BIN="$HOME/.cargo/bin"
 
-export PATH="$NVIM_PATH:$RUST_BIN:$NODE_PATH/bin:$GOPATH/bin:$HOME/.local/bin:$PATH"
+export PATH="/usr/local/go/bin:$NVIM_PATH:$RUST_BIN:$NODE_PATH/bin:$GOPATH/bin:$HOME/.local/bin:$PATH"
 
 
 [ -f ~/.git-completion.bash ] && . ~/.git-completion.bash
