@@ -1,4 +1,4 @@
-vim.lsp.config("lua_ls", {
+return {
 	settings = {
 		Lua = {
 			runtime = {
@@ -14,4 +14,4 @@ vim.lsp.config("lua_ls", {
 			telemetry = { enable = false, },-- Do not send telemetry data containing a randomized but unique identifier
 		},
 	},
-})
+}

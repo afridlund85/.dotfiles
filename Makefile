@@ -1,24 +1,22 @@
 .DEFAULT_GOAL := all
 .PHONY: all stow nvim nvm node go composer rust sdkman java lua luarocks maven
 
-all: stow tmux nvim nvm node go composer 
+all: stow nvim
 
 stow:
 	mkdir -p ~/.config
 	stow git
 	stow nvim
-	stow lazy
 	stow bash
-	stow tmux
 
 tmux:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 nvim:
-	curl -fsSLO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-	sudo tar -C /opt -xf nvim-linux64.tar.gz
-	ln -s /opt/nvim-linux64/bin/nvim ~/.local/bin/nvim
-	rm nvim-linux64.tar.gz
+	curl -fsSLO https://github.com/neovim/neovim/releases/download/v0.12.1/nvim-linux-x86_64.tar.gz
+	sudo tar -C /opt -xf nvim-linux-x86_64.tar.gz
+	rm nvim-linux-x86_64.tar.gz
+	ln -s /opt/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
 
 .ONESHELL:
 export XDG_CONFIG_HOME=${HOME}/.config

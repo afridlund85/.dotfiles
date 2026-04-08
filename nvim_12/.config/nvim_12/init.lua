@@ -5,17 +5,12 @@ vim.g.maplocalleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.cmd("colorscheme gruvbox")
-
-require("options")
-require("keymaps")
-
 vim.pack.add({
 	{ src = "https://github.com/morhetz/gruvbox" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
-	{ src = "https://github.com/Saghen/blink.cmp",               version = "v1.7.0" },
+	{ src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("^1.0") },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
@@ -24,8 +19,14 @@ vim.pack.add({
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" }, --required by spectre
 	{ src = "https://github.com/nvim-pack/nvim-spectre" },
+	{ src = "https://github.com/nvim-mini/mini.icons" },
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 })
 
+vim.cmd("colorscheme gruvbox")
+
+require("options")
+require("keymaps")
 require("plugins.mason")
 require("plugins.blink-cmp")
 require("oil").setup()
