@@ -41,3 +41,6 @@ opt.splitbelow = true
 opt.splitright = true
 opt.wrap = false
 opt.shortmess:append "c"
+
+vim.diagnostic.config({ virtual_text = true })
+-- vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"

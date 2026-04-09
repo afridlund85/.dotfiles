@@ -3,13 +3,14 @@
 sudo add-apt-repository ppa:ondrej/php -y && \
 sudo apt -qq update && \
 sudo apt -qq -y install curl wget git ca-certificates build-essential software-properties-common gnupg2 g++ cmake stow zip unzip \
+	wl-clipboard \
     ripgrep \
     fd-find \
     yamllint \
     shellcheck \
     tmux \
     inotify-tools \
-    php8.3-{bcmath,xml,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi,yaml,redis,xdebug} \
+    php8.5-{bcmath,xml,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi,yaml,redis,xdebug} \
     lua5.4 luarocks \
     python3-venv python3-pip
 

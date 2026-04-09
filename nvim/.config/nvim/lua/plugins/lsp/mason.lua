@@ -13,7 +13,7 @@ return {
                 "bashls",
                 "cssls",
                 "dockerls",
-                "eslint",
+                -- "eslint",
                 "gopls",
                 -- "groovyls",
                 "html",

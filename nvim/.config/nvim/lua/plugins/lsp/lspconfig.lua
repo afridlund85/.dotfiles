@@ -5,8 +5,6 @@ return {
 		"folke/lazydev.nvim",
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
-
 		local on_attach = function(client, bufnr)
 			local function map(mode, lhs, rhs, opts)
 				local options = { remap = false, silent = true }
@@ -66,30 +64,91 @@ return {
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-		lspconfig.ts_ls.setup({
+		vim.lsp.config("ts_ls", {
 			on_attach = on_attach,
 			capabilities = capabilities,
 		})
-		-- lspconfig.phpactor.setup({
-		-- 	on_attach = on_attach,
-		-- 	capabilities = capabilities,
-		-- 	init_options = {
-		-- 		["language_server.diagnostics_on_update"] = false,
-		-- 		["language_server.diagnostics_on_open"] = false,
-		-- 		["language_server.diagnostics_on_save"] = false,
-		-- 		["language_server_phpstan.enabled"] = false,
-		-- 		["language_server_psalm.enabled"] = false,
-		-- 	},
-		-- })
-		-- lspconfig.phan.setup({
-		-- 	on_attach = on_attach,
-		-- 	capabilities = capabilities,
-		-- })
-		lspconfig.intelephense.setup({
+		vim.lsp.config("intelephense", {
+			settings = {
+				intelephense = {
+					stubs = {
+						"apache",
+						"bcmath",
+						"bz2",
+						"calendar",
+						"com_dotnet",
+						"Core",
+						"ctype",
+						"curl",
+						"date",
+						"dba",
+						"dom",
+						"enchant",
+						"exif",
+						"FFI",
+						"fileinfo",
+						"filter",
+						"fpm",
+						"ftp",
+						"gd",
+						"gettext",
+						"gmp",
+						"hash",
+						"iconv",
+						"imap",
+						"intl",
+						"json",
+						"ldap",
+						"libxml",
+						"mbstring",
+						"meta",
+						"mysqli",
+						"oci8",
+						"odbc",
+						"openssl",
+                        "opentelemetry",
+						"pcntl",
+						"pcre",
+						"PDO",
+						"pgsql",
+						"Phar",
+						"posix",
+						"pspell",
+						"random",
+						"readline",
+                        "redis",
+						"Reflection",
+						"session",
+						"shmop",
+						"SimpleXML",
+						"snmp",
+						"soap",
+						"sockets",
+						"sodium",
+						"SPL",
+						"sqlite3",
+						"standard",
+						"superglobals",
+						"sysvmsg",
+						"sysvsem",
+						"sysvshm",
+						"tidy",
+						"tokenizer",
+						"xml",
+						"xmlreader",
+						"xmlrpc",
+						"xmlwriter",
+						"xsl",
+						"Zend OPcache",
+						"zip",
+						"zlib",
+					},
+				},
+			},
 			on_attach = on_attach,
 			capabilities = capabilities,
 		})
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			on_attach = on_attach,
 			settings = {
 				Lua = {
@@ -113,7 +172,7 @@ return {
 				},
 			},
 		})
-		lspconfig.gopls.setup({
+		vim.lsp.config("gopls", {
 			on_attach = on_attach,
 			capabilities = capabilities,
 			-- cmd = { "$HOME/.local/share/nvim/mason/bin/gopls" },
@@ -130,21 +189,21 @@ return {
 				},
 			},
 		})
-		lspconfig.yamlls.setup({
+		vim.lsp.config("yamlls", {
 			on_attach = on_attach,
 			capabilities = capabilities,
 			filetypes = { "yml", "yaml", "neon.dist" },
 		})
-		lspconfig.dockerls.setup({
+		vim.lsp.config("dockerls", {
 			on_attach = on_attach,
 			capabilities = capabilities,
 		})
-		lspconfig.html.setup({
+		vim.lsp.config("html", {
 			on_attach = on_attach,
 			capabilities = capabilities,
 			filetypes = { "html", "hbt", "twig", "hbs", "thtml", "handlebars", "html.handlebars" },
 		})
-		lspconfig.cssls.setup({
+		vim.lsp.config("cssls", {
 			settings = {
 				css = {
 					lint = {
@@ -153,13 +212,13 @@ return {
 				},
 			},
 		})
-		lspconfig.bashls.setup({})
-		lspconfig.groovyls.setup({
+		vim.lsp.config("bashls", {})
+		vim.lsp.config("groovyls", {
 			filetypes = {
 				"Jenkinsfile.*",
 			},
 		})
-		lspconfig.sqlls.setup({
+		vim.lsp.config("sqlls", {
 			root_dir = function(_)
 				return vim.loop.cwd()
 			end,
