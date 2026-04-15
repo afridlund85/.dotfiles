@@ -19,6 +19,7 @@ vim.pack.add({
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" }, --required by spectre
 	{ src = "https://github.com/nvim-pack/nvim-spectre" },
+	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.icons" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 })
@@ -30,7 +31,8 @@ require("keymaps")
 require("plugins.mason")
 require("plugins.blink-cmp")
 require("oil").setup()
-require("plugins.fzf-lua")
+require("fzf-lua").setup({"ivy"})
 require("plugins.gitsigns")
 require("plugins.lsp")
+require("plugins.conform")
 
