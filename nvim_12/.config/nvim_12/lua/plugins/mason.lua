@@ -1,5 +1,5 @@
 require("mason").setup()
-require("mason-lspconfig").setup{
+require("mason-lspconfig").setup({
 	ensure_installed = {
 		-- "bashls",
 		-- "cssls",
@@ -18,4 +18,22 @@ require("mason-lspconfig").setup{
 		"ts_ls",
 		"yamlls",
 	},
-}
+})
+require("mason-tool-installer").setup({
+	ensure_installed = {
+		-- "black",
+		"codelldb",
+		"eslint",
+		"gofumpt",
+		-- "isort",
+		"jsonlint",
+		"luacheck",
+		"php-cs-fixer",
+		"php-debug-adapter",
+		"phpcbf",
+		"phpcs",
+		"prettierd",
+		"shellcheck",
+		"stylua",
+	},
+})

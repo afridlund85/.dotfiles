@@ -1,9 +1,9 @@
-return {
+require("conform").setup({
 	formatters_by_ft = {
-		php = { "phpcbf" }, --first of
+		php = { "phpcbf" },
 		lua = { "stylua" },
-		-- python = { "isort", "black" }, --both
-		javascript = { { "prettierd", "prettier" } }, --first of
+		-- python = { "isort", "black" },
+		javascript = { "prettierd", "prettier", stop_after_first = true  },
 		go = { "gofumpt" },
 	},
 	default_format_opts = {
@@ -15,4 +15,4 @@ return {
 			prepend_args = { "-i", "2" },
 		},
 	},
-}
+})

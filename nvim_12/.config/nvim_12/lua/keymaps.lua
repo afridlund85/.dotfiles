@@ -40,8 +40,8 @@ set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", {desc = "lsp hover"})
 -- set("n", "<leader>cd", "<cmd>lua vim.lsp.buf.definition()<CR>", {desc = "goto definition"})
 set("n", "<leader>cr", require("fzf-lua").lsp_references, {desc = "references"})
 set("n", "<leader>cd", require("fzf-lua").lsp_definitions, {desc = "goto definition"})
-set({ "n", "x" }, "<leader>cf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { desc =  "Format code in buffer(LSP)"})
-set("n", "<leader>cF", ":lua require('conform').format({ async = true })<CR>", { desc = "Format code in buffer(conform)"})
+set({ "n", "x" }, "<leader>cF", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { desc =  "Format code in buffer(LSP)"})
+set("n", "<leader>cf", ":lua require('conform').format({ async = true })<CR>", { desc = "Format code in buffer(conform)"})
 
 -- search files and text
 set("n", "<leader>fr", require("fzf-lua").resume, {desc = "fzf resume"})

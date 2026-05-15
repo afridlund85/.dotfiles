@@ -14,6 +14,8 @@ vim.pack.add({
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
+	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
+	{ src = "https://github.com/mfussenegger/nvim-lint" },
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 	{ src = "https://github.com/folke/which-key.nvim" },
@@ -22,6 +24,7 @@ vim.pack.add({
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.icons" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+	{ src = 'https://github.com/nvim-mini/mini.statusline', version = 'stable' },
 })
 
 vim.cmd("colorscheme gruvbox")
@@ -31,9 +34,10 @@ require("keymaps")
 require("plugins.mason")
 require("plugins.blink-cmp")
 require("oil").setup()
-require("fzf-lua").setup({"ivy"})
+require("fzf-lua").setup({ "ivy" })
 require("plugins.gitsigns")
 require("plugins.treesitter")
 require("plugins.lsp")
 require("plugins.conform")
-
+require("plugins.lint")
+require("plugins.mini-statusline")

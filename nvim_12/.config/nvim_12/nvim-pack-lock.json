@@ -6,7 +6,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "conform.nvim": {
-      "rev": "dca1a19",
+      "rev": "18aeab3",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "friendly-snippets": {
@@ -14,11 +14,11 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "b437baf",
+      "rev": "311a630",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "6d808f9",
+      "rev": "dd3f588",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "gruvbox": {
@@ -26,19 +26,32 @@
       "src": "https://github.com/morhetz/gruvbox"
     },
     "mason-lspconfig.nvim": {
-      "rev": "0c2823e",
+      "rev": "7b01e29",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
+    "mason-tool-installer.nvim": {
+      "rev": "443f1ef",
+      "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
+    },
     "mason.nvim": {
-      "rev": "cb8445f",
+      "rev": "8e921c2",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.icons": {
-      "rev": "bac6317",
+      "rev": "9c7b1b9",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
+    "mini.statusline": {
+      "rev": "1491990",
+      "src": "https://github.com/nvim-mini/mini.statusline",
+      "version": "'stable'"
+    },
+    "nvim-lint": {
+      "rev": "6655258",
+      "src": "https://github.com/mfussenegger/nvim-lint"
+    },
     "nvim-lspconfig": {
-      "rev": "6419b36",
+      "rev": "8f7e640",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-spectre": {
@@ -50,7 +63,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-web-devicons": {
-      "rev": "4fc505a",
+      "rev": "2795c26",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "oil.nvim": {
